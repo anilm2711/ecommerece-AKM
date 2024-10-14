@@ -16,8 +16,12 @@
                     var result = await sender.Send(command);
 
                     //And After that we will get back to response and adapt result back to the CreateProductResponse 
-                    // and return this response to the Client Application
+                    
+
                     var response = result.Adapt<CreateProductResponse>();
+
+                    // and return this response to the Client Application
+
                     return Results.Created($"/products/{response.Id}", response);
                 })
             .WithName("CreateProduct")
